@@ -15,11 +15,12 @@ import sys
 import oauth2client.client
 import oauth2client.file
 import oauth2client.tools
-import pkg_resources
 
 import goobook.config
 from goobook.goobook import GooBook, Cache, GoogleContacts, parse_groups, parse_contacts
 from goobook.storage import unstorageify
+
+__version__ = '3.5.2'
 
 log = logging.getLogger(__name__)  # pylint: disable=invalid-name
 
@@ -56,7 +57,7 @@ def main():
                         const=logging.INFO, help='Be verbose about what is going on (stderr).')
     parser.add_argument('-V', '--version',
                         action='version',
-                        version='%%(prog)s %s' % pkg_resources.get_distribution("goobook").version,
+                        version='%%(prog)s %s' % __version__,
                         help="Print version and exit")
     parser.add_argument('-d', '--debug', dest="log_level", action='store_const',
                         const=logging.DEBUG, help='Output debug info (stderr).')
